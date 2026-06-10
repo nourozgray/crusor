@@ -1,0 +1,10 @@
+{
+  "name": "Crusor",
+  "short_name": "Crusor",
+  "description": "A mobile-first collect-and-dodge arcade game prototype.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "orientation": "portrait"
+}
