@@ -44,11 +44,7 @@ const INITIAL_SHIELDS = 3;
 const TARGET_FRAME_MS = 1000 / 60;
 
 const canvas = getElement<HTMLCanvasElement>("#game-canvas");
-const context = canvas.getContext("2d");
-
-if (!context) {
-  throw new Error("Canvas rendering is not supported in this browser.");
-}
+const context = getCanvasContext(canvas);
 
 const scoreElement = getElement<HTMLElement>("#score");
 const bestScoreElement = getElement<HTMLElement>("#best-score");
@@ -161,6 +157,16 @@ function getChild<T extends HTMLElement>(parent: HTMLElement, selector: string):
   }
 
   return element;
+}
+
+function getCanvasContext(element: HTMLCanvasElement): CanvasRenderingContext2D {
+  const renderingContext = element.getContext("2d");
+
+  if (!renderingContext) {
+    throw new Error("Canvas rendering is not supported in this browser.");
+  }
+
+  return renderingContext;
 }
 
 function resizeCanvas(): void {
